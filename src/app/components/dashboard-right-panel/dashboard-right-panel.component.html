@@ -1,0 +1,12 @@
+<!-- <mat-grid-list *ngIf="!isClickEvent" [cols]="columns" [gutterSize]="colMargin" rowHeight="fit"> need to save this dynamic layout code -->
+    <mat-grid-list *ngIf="!_dashConfigData._isSinglePanelViewMode" [cols]="columns" [gutterSize]="colMargin" [rowHeight]="rowHeight">
+      <mat-grid-tile *ngFor="let widget of widgetData" (click)="onRowClicked(widget)" [colspan]="(totalNoOfCol <= 2) ? widget.sizex : 1 " class="dashboard-mat-title">
+    <dashboard-widget [widget]="widget" (widgetAction)="onWidgetAction($event)"> </dashboard-widget>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<ons-carousel *ngIf="_dashConfigData._isSinglePanelViewMode" #carousel fullscreen swipeable auto-scroll id="carousel" (postchange)="myHandler($event)" class="dashboard-ons-carousel">
+  <ons-carousel-item *ngFor="let widget of widgetData" [style.background]="widget.color">
+      <dashboard-widget [widget]="widget" (widgetAction)="onWidgetAction($event)"[isSinglePanel]="true"> </dashboard-widget>
+  </ons-carousel-item>
+</ons-carousel>

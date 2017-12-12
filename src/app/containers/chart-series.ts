@@ -1,0 +1,37 @@
+export class ChartSeries {
+    type: string = null;
+    allowPointSelect = false;
+    animation = false;
+    color: any = null;
+    connectEnds = true;
+    connectnulls = false;
+    cropThreshold = 300;
+    dashStyle = 'Solid';
+    data: any = null;
+    dataLabels: any = {};
+    enableMouseTracking = true;
+    getExtremesFromAll = false;
+    lineWidth = 2;
+    borderWidth = 0;
+    linecap = 'round';
+    name: string = null;
+    pointInterval = 1;
+    pointStart = 0;
+    selected = false;
+    shadow = false;
+    showCheckbox = false;
+    showInLegend = true;
+    softThreshold = false;
+    boostThreshold = 20000;
+    stickyTracking = false;
+    threshold = 0;
+    turboThreshold = 20000;
+    visible = true;
+    xAxis = 0;
+    yAxis = 0;
+    zoneAxis = 'y';
+    trStartTime = 0;
+    displayName = '';
+    marker = { enabled: false, symbol: 'circle', radius: 1 };
+    maxPointWidth = 25;
+  }

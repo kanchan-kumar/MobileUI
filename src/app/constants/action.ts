@@ -1,0 +1,15 @@
+export const TOGGLE_SIDE_MENU = 'TOGGLE_SIDE_MENU';
+export const COLLAPSE_SIDE_MENU = 'COLLAPSE_SIDE_MENU';
+export const FAVORITE_DATA_UPDATE_AVAILABLE = 'FFDTUPA';
+export const LOAD_MAIN_GRID = 'LOAD_MAIN_GRID';
+
+export const FAVORITE_TREE_UPDATE_AVAILABLE = 'FFTRDTUPA';
+
+/*Widget action handler*/
+export const UPDATE_WIDGET_ON_WIDGET_RESIZE = 'UWOWR';
+
+export const PAGE_DATA_UPDATE = 'PAGEUP';
+
+export const WIDGET_DATA_UPDATED = 'WIDDATAUPTD';
+
+export const WIDGET_CAPTION_UPDATED = 'WCU';

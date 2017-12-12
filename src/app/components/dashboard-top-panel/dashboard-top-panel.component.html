@@ -1,0 +1,21 @@
+<ons-toolbar class="dashboard-toolbar">
+  <div class="left dashboard-left">
+    <ons-toolbar-button (click)="openLeftMenu($event)">
+      <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+    </ons-toolbar-button>
+  </div>
+  <div class="right dashboard-right">
+    <div *ngIf="!_dashConfigData._isSinglePanelViewMode" class="ui-g-12" style="padding: 0em;">
+    <dashboard-paginator class="dashboard-pagination" [style.display]="showPagination?'inherit':'none'" rows={{totalWidgets}} totalRecords={{totalPanels}} [setpageNum]="paginator" pageLinkSize="3" alwaysShow="false" (onPageChange)="changePage($event)"></dashboard-paginator>
+    </div>
+    <div class="ui-g carousel-class">
+    <div *ngIf="_dashConfigData._isSinglePanelViewMode" class="ui-g-7" style="padding: 2px;">{{selectedIndex}} / {{totalLength}} </div>
+      <ons-toolbar-button *ngIf="_dashConfigData._isSinglePanelViewMode" (click)="backToMain()">
+        <ons-icon icon="fa-arrow-circle-o-left"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+    </div>
+</ons-toolbar>
+<div class="dashboard-page-content">
+  <app-dashboard-right-panel (change)="countChange($event)"></app-dashboard-right-panel>
+</div>

@@ -1,0 +1,23 @@
+.carousel-class ons-toolbar-button.toolbar-button {
+    padding: 0em;
+    height: 0%;
+    margin-left: 5px;
+}
+
+ons-toolbar.dashboard-toolbar.toolbar {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12);
+    color: #000;
+    height: 32px;
+    line-height: normal;
+}
+
+.dashboard-page-content {
+    margin: 5px;
+}
+
+.dashboard-right {
+    line-height: 25px;
+    /* width: auto; */
+}
+

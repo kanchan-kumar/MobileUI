@@ -1,0 +1,15 @@
+<div [style.visibility]="_configService._loadingProgress">
+  <ons-progress-bar [value]="v" [ngStyle]="{'padding-top': setPadding}"></ons-progress-bar>
+</div>
+<ons-toolbar class="dashboard-main-toolbar">
+    <div class="left" (click)="backToTestRun()">
+        <img src="../../../resources/images/cavi_logo_white.png" style="width: 100px; height: 20px;">
+    </div>
+    <div class="center">
+        {{productName}}
+    </div>
+    <div class="right">
+  
+    </div>
+</ons-toolbar>
+  

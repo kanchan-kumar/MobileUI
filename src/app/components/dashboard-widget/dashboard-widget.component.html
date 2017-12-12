@@ -1,0 +1,84 @@
+<div #widgetRef style="height: 100%" id=widget_{{widget.widgetId}}>
+    <div class="dashboard-panel-header-color dashboard-panel-header dashboard-drag-panel">
+        <div class="ui-helper-clearfix label-font">
+            <span class="ui-panel-title">{{panelData.panelTitle}}</span>
+        </div>
+    </div>
+    <!-- ng-template for graph type widget. -->
+    <div *ngIf="widgetType == 1" class="dashboard-graph-widget">
+        <Hchart *ngIf="panelData.chart.type == 'map'" type='Map' #HChart [options]="panelData.chart" (load)="load($event.context)"></Hchart>
+        <Hchart *ngIf="!panelData.chart.type" #HChart [options]="panelData.chart" (load)="load($event.context)"></Hchart>
+    </div>
+    <!-- ng-template for data type widget. -->
+    <div *ngIf="widgetType == 2" class="dashboard-data-health-widget">
+        <mat-card class='dashboard-data-widget dashboard-drag-panel' style="box-shadow:inherit; height: 98%; background-color: transparent;">
+            <mat-card-title-group>
+                <!-- <mat-card-title class="dashboard-data-widget-title">{{panelData.panelTitle}}</mat-card-title> -->
+                <!-- <mat-card-subtitle class="dashboard-data-widget-subtitle"></mat-card-subtitle> -->
+            </mat-card-title-group>
+            <mat-card-content class="dashboard-data-widget-content">
+                <div class="dashboard-data-widget-subtitle">{{panelData.dataWidget?.dataAttrDisplayName}}</div>
+                <span class="dashboard-data-content">{{panelData.dataWidget?.dataAttrValue}}</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <!-- ng-template for Tabular type widget. -->
+    <div *ngIf="widgetType == 3" class="dashboard-aggeregate-treetable">
+        <div *ngIf="panelData?.isBtAggAvailable === undefined || panelData?.isBtAggAvailable === false">
+            <p-dataTable [value]="panelData?.tableWidget?.tableData" [resizableColumns]='true' [style]="{'min-height': '100px'}" scrollable="true">
+                <!-- Selection Mode based on condition. -->
+                <p-column *ngFor="let column of panelData?.tableWidget?.tableColumns" [field]="column.field" [header]="column.header">
+                    <!-- For Other columns. -->
+                    <ng-template let-col let-data="rowData" pTemplate="body">
+                        <div class='table-text-align-right' [title]="data[col.field]">{{data[col.field]}}</div>
+                    </ng-template>
+                    <!-- For Name columns. -->
+                    <ng-template *ngIf="column.field === 'graphName' || column.field == 'Vector Name'" let-col let-data="rowData" pTemplate="body">
+                        <div class='table-text-align-left' [title]="data[col.field]">{{data[col.field]}}</div>
+                    </ng-template>
+                </p-column>
+            </p-dataTable>
+        </div>
+        <!--For the treetable-->
+        <div *ngIf="panelData?.isBtAggAvailable">
+            <p-treeTable [value]="panelData?.tableWidget?.tableData" selectionMode="multiple" (onNodeExpand)="loadNode($event)" (onNodeSelect)="nodeSelect($event)"
+                (onNodeUnselect)="nodeUnselect($event)" [style]="{'height': btTableHeight}">
+                <p-column *ngFor="let column of panelData?.tableWidget?.tableColumns" [field]="column.field" [style]="column.style" hidden="column.hidden"
+                    [header]="column.header">
+                    <!--<ng-template *ngIf="column.header === 'checkbox'" pTemplate="header">
+                      <div class='table-text-align-center'>
+                          <p-checkbox binary="true" [(ngModel)]="allRowsSelected" (onChange)="onAllRowSelectionChange($event);"></p-checkbox>
+                      </div>
+                  </ng-template>-->
+                    <ng-template let-col let-data="rowData" pTemplate="body">
+                        <span *ngIf="data.value != undefined" class='table-text-align-right'>
+                            <span positionStyle="fixed">{{data.value[col.field]}} </span>
+                        </span>
+                    </ng-template>
+                    <ng-template *ngIf="column.field === 'graphName'" let-col let-data="rowData" pTemplate="body">
+                        <span class='table-text-align-left' title=data.value[col.field]>{{data.value[col.field]}}</span>
+                    </ng-template>
+                    <!--<ng-template *ngIf="column.header === 'checkbox'" let-col let-data="rowData" pTemplate="body">
+                      <div class='table-text-align-center'>
+                          <p-checkbox [value]="data.checked" [(ngModel)]="tableSelectedRowsWithId" (onChange)="onRowSelectionChange($event, data);"></p-checkbox>
+                      </div>
+                  </ng-template>-->
+                </p-column>
+            </p-treeTable>
+        </div>
+    </div>
+    <!-- ng-template for Health type widget -->
+    <div *ngIf="widgetType == 5" (click)='onWidgetSelection($event)' class="dashboard-data-health-widget">
+        <mat-card class='dashboard-data-widget dashboard-drag-panel' style="box-shadow:inherit; height: 98%">
+            <mat-card-title-group>
+                <mat-card-title class="dashboard-data-widget-title">{{panelData.panelTitle}}</mat-card-title>
+                <!-- <mat-card-subtitle class="dashboard-data-widget-subtitle"></mat-card-subtitle> -->
+            </mat-card-title-group>
+            <mat-card-content class="dashboard-data-widget-content">
+                <div class="dashboard-data-widget-subtitle">{{panelData.healthWidget?.dataAttrDisplayName}}</div>
+                <span>{{panelData.healthWidget?.dataAttrValue}}</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="example-container mat-elevation-z8 main-box">
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput [formControl]="searchTestData" placeholder="Search test run">
+      </mat-form-field>
+
+      <button mat-mini-fab>
+          <mat-icon (click)="searchResult()">search</mat-icon>
+      </button>
+      <button mat-mini-fab>
+          <mat-icon (click)="showAllResult()">clear_all</mat-icon>
+      </button>
+    </div>
+  
+    <div style="padding: 2px; background: white;">
+    <mat-table class="dashboard-mat-table" [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" [ngStyle]="{'height': setHeight}">
+      <!-- Position Column -->
+      <ng-container matColumnDef="testMode">
+        <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="dashboard-row-cel"> 
+            <span *ngIf="element.testMode == 'RU'">
+                <img width='15' height='15' class="running-test-image">
+            </span>   
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="testRun">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Test Run </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="dashboard-row-cel"> 
+          <a (click)="openWebDashboard(element.testRun)"><span style="text-decoration: underline;">{{element.testRun}}</span></a>
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="startTime">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Start Time </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="dashboard-row-cel"> {{element.startTime}} </mat-cell>
+      </ng-container>
+  
+      <!-- Color Column -->
+      <ng-container matColumnDef="startedBy">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Run Time </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="dashboard-row-cel"> {{element.runTime}} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns" class="dashboard-header-row"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" class="dashboard-row"></mat-row>
+    </mat-table>
+    </div>
+
+    <mat-paginator class="dashboard-paginator" [length]="totalRecords" [pageSize]="10" [pageSizeOptions]="[5, 10, 15]"></mat-paginator>
+  </div>
+  

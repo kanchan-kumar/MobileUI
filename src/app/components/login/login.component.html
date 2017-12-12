@@ -1,0 +1,38 @@
+<mat-grid-list class="container" cols="10" rowHeight="fit" [ngStyle]="{'background-position': setImage}">
+  <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows">
+    <mat-card *ngIf="tile.text == 'login'" class="login-card" [ngStyle]="{'height': setCardHeight, 'width': setCardWidth}">
+      <mat-card-header [ngStyle]="{'height': setHeight }">
+        <div mat-card-avatar class="login-card-header-image"></div>
+        <mat-card-title></mat-card-title>
+        <!-- <mat-card-subtitle>Sign in to access {{productName}}</mat-card-subtitle> -->
+        <mat-card-subtitle>{{controllerInfo}}</mat-card-subtitle>
+        <br>
+        <br>
+        <br>
+      </mat-card-header>
+      <mat-card-content>
+        <div>
+          <div style="color: red; font-size: 12px; margin-bottom: 12px;">{{message}}</div>
+          <form class="login-form">
+            <div class="input-row">
+              <span class="userClass fa fa-user" [style.top]="setUserTop"></span>
+                <input type="text" name="name" [(ngModel)]="model.UserNameFormControl" #UserNameFormControl="ngModel" placeholder="User Name" required class="dashboard-input">
+            </div>
+            <div class="input-row">
+              <span class="keyClass fa fa-key" [style.top]="setPassTop"></span>
+                <input type="password" name="password" placeholder="Password" [(ngModel)]="model.PasswordFormControl" #PasswordFormControl="ngModel" required class="dashboard-input" autocomplete="off">
+            </div>
+          </form>
+        </div>
+      </mat-card-content>
+      <mat-card-actions class="login-lower-section">
+        <button mat-raised-button class="login-btn" (click)="onSubmit($event);">
+          <mat-icon fontSet='fa' fontIcon='fa-sign-in' class="login-btn-icon">
+          </mat-icon>
+          Login
+          <img *ngIf="loading" class="loadingIcon" src="../../../resources/images/loading.gif" />
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

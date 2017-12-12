@@ -1,0 +1,94 @@
+.login-card {
+  /* width: 300px; */
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  margin: 8em auto;
+  background-color: rgba(20, 20, 20, 0.62);
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,.5), 0 5px 25px 0 rgba(0,0,0,.5) !important;
+}
+
+.login-card-header-image {
+  background-image: url('../../../resources/images/logo_circle.png');
+  background-size: cover;
+}
+
+.login-btn-icon {
+  font-size: 17px;
+  margin-top: 5px;
+}
+
+mat-grid-list.container.mat-grid-list {
+  background: url("../../../resources/images/theme2-login.jpg");
+  background-position: bottom;
+}
+
+mat-grid-list {
+  height: 100%;
+}
+
+.keyClass, .userClass{
+  position: absolute;
+  left: 28px;
+  font-size: 22px;
+  color: #53b675;
+}
+
+.userClass {
+  top: 28%;
+}
+
+.keyClass {
+  top: 50%;
+} 
+
+.dashboard-input {
+  width: 100%;
+  height: auto;
+  padding: 12px;
+  margin: 0 0 18px;
+  outline: 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  font-size: 14px;
+  transition: all .1s ease-in;
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid #5a5a5a;
+  padding: 13px;
+  color: #fff;
+  text-indent: 18px;
+}
+
+button.login-btn.mat-raised-button {
+  width: 35%;
+  height: 36px;
+  padding: 0px;
+  line-height: 10px;
+  border-radius: 5px;
+  border: 1px solid #525252;
+  background-color: rgba(0,0,0,.44);
+  color: #fff;
+  font-size: 14px;
+  transition: all .1s ease-in;
+}
+
+.login-card .mat-card-actions .mat-raised-button:first-child {
+  margin-left: 0px; 
+}
+
+mat-card-actions.login-lower-section.mat-card-actions {
+  text-align: center;
+}
+
+.login-card mat-card-subtitle.mat-card-subtitle {
+  color: rgb(202, 202, 202);
+}
+
+.loadingIcon {
+  height: 50%;
+}
+

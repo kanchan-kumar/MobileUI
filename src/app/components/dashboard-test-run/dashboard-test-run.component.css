@@ -1,0 +1,105 @@
+.main-box {
+    background-color: rgba(255, 255, 255, 0.95);
+    margin: 2px;
+}
+
+.dashboard-header-row {
+    padding: 0 10px;
+    min-height: 28px;
+    background: rgba(65, 126, 191, 0.9);
+    border-right: 1px #333 solid;
+    border-left: 1px #333 solid;
+}
+
+.dashboard-row {
+    padding: 0 10px;
+    min-height: 22px;
+    border-right: 1px #333 solid;
+    border-left: 1px #333 solid;
+}
+
+.dashboard-row-cel {
+    font-size: 11px;
+    font-weight: 500;
+}
+
+mat-cell.dashboard-row-cel {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  /* min-height: 64px; */
+  padding: 8px 5px 0px;
+}
+
+.mat-form-field {
+  font-size: 10px;
+  line-height: 1.125;
+  /* width: 45%; */
+}
+
+.main-box .mat-table {
+  overflow: auto;
+  /* max-height: 450px; */
+  height: 345px;
+  background-color: rgba(255, 255, 255, 0.88);
+}
+
+.dashboard-mat-raised-button {
+    padding: 0px;
+    min-width: 20%;
+}
+
+.mat-column-testMode {
+    flex: 0 0 35px;
+}
+
+.dashboard-mat-table mat-header-cell.mat-header-cell {
+    color: #fff;
+}
+
+/* .mat-column-startedBy {
+    flex: 0 0 60px;
+} */
+.running-test-image {
+    background-image: url('../../../resources/images/play.gif');
+    background-size: cover;
+}
+
+button.mat-mini-fab.mat-accent {
+    background-color: cadetblue;
+    height: 30px;
+    width: 30px;
+}
+
+mat-row:nth-child(even){
+    background-color: #fff;
+}
+
+mat-row:nth-child(odd){
+    background-color:#cfe1f1;
+}
+
+mat-paginator.dashboard-paginator.mat-paginator {
+    background: rgb(245, 245, 245);
+}
+
+.mat-paginator-container {
+    padding: 0 8px;
+    height: 40px;
+}
+
+mat-icon.mat-icon.material-icons {
+    font-size: 20px;
+}
+
+/* using Modernizer CSS classes to detect if browser supports the W3C Touch Events API */
+/* :host-context(.mod-touchevents) [md-button]:hover::after, [md-icon-button]:hover::after {
+    content: none;
+} */

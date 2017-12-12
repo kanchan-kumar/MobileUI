@@ -1,0 +1,70 @@
+.dashboard-panel-header {
+    height: 15px;
+    overflow: hidden;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 3px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.dashboard-panel {
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+md-icon {
+    height: 20px;
+    width: 15px;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.dashboard-data-widget-title {
+    font-size: 18px;
+}
+
+.dashboard-data-widget-subtitle {
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 15%;
+    text-align: center;
+    color: rgba(101, 91, 91, 0.87)
+}
+
+.dashboard-data-widget {
+    font-size: 12px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.dashboard-data-widget-content {
+    height: 60%;
+    text-align: center;
+    font-size: 60px;
+}
+
+.dashboard-data-health-widget {
+    height: 100%;
+}
+
+.dashboard-panel-header-color {
+    color: #000;
+    font-weight: 500;
+    border-color: black;
+    background: rgba(67, 128, 193, 0.25);
+    border-bottom: 1px #83a4c5 solid;
+}
+
+.dashboard-data-content {
+    font-size: 30px;
+    font-weight: bold;
+    color: #3e3b3b;
+}
+
+.dashboard-graph-widget {
+    padding: 5px 2px 5px 0;
+}
